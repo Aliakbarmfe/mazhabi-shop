@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه عضو و فالور مذهبی 🔥</title>
+    <!-- فونت وزیرمتن برای زیبایی و خوانایی بالا -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold-primary: #fbbf24;
+            --gold-secondary: #d97706;
+            --gold-glow: rgba(251, 191, 36, 0.4);
+            --red-accent: #dc2626;
+            --bg-dark: rgba(10, 12, 18, 0.82);
+            --glass-bg: rgba(20, 24, 34, 0.65);
+            --glass-border: rgba(251, 191, 36, 0.3);
+            --text-light: #f8fafc;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #07090e;
+            color: var(--text-light);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* پس زمینه ثابت با انیمیشن زوم اسلوموشن */
+        .bg-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('photos/haramimamhussein.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: slowMotionZoom 35s infinite alternate ease-in-out;
+        }
+
+        /* لایه تیره روی پس زمینه برای خوانایی عالی */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(8, 10, 16, 0.78) 0%, rgba(12, 14, 22, 0.88) 50%, rgba(8, 10, 16, 0.95) 100%);
+            z-index: -1;
+            backdrop-filter: blur(3px);
+        }
+
+        @keyframes slowMotionZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.12); }
+        }
+
+        /* انیمیشن شناور برای باکس‌ها */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* انیمیشن ورود نرم */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* هدر سایت */
+        header {
+            text-align: center;
+            padding: 40px 20px 25px;
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 25px rgba(251, 191, 36, 0.25);
+            margin-bottom: 10px;
+        }
+
+        /* باکس راهنما و اطلاعات پرداخت */
+        .payment-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px 25px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(251, 191, 36, 0.05);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .payment-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(251, 191, 36, 0.2);
+        }
+
+        .guide-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 22px;
+        }
+
+        /* دکمه ورود به روبینو */
+        .btn-rubino {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            margin-bottom: 25px;
+            border: 1px solid #fde68a;
+        }
+
+        .btn-rubino:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.65);
+        }
+
+        /* باکس شماره کارت */
+        .card-box {
+            background: rgba(10, 12, 18, 0.75);
+            border: 1px dashed var(--gold-primary);
+            border-radius: 16px;
+            padding: 18px;
+            margin: 15px auto;
+            max-width: 450px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card-box:hover {
+            background: rgba(251, 191, 36, 0.12);
+            transform: scale(1.02);
+        }
+
+        .card-label {
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .card-number {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .card-owner {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* باکس آیدی روبیکا */
+        .id-box {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .id-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(220, 38, 38, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #fca5a5;
+            padding: 10px 24px;
+            border-radius: 14px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            direction: ltr;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: all 0.35s ease;
+        }
+
+        .id-badge:hover {
+            background: rgba(220, 38, 38, 0.35);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        /* عنوان بخش محصولات */
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .section-title::before, .section-title::after {
+            content: "";
+            height: 2px;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        /* لیست محصولات */
+        .products-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .product-item {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-item::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--gold-primary);
+            opacity: 0.6;
+            transition: width 0.4s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: var(--gold-primary);
+            background: rgba(30, 36, 52, 0.85);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(251, 191, 36, 0.15);
+        }
+
+        .product-item:hover::before {
+            width: 7px;
+            opacity: 1;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .product-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .product-price {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            color: #0f172a;
+            border: none;
+            padding: 11px 24px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.06);
+            box-shadow: 0 6px 22px rgba(251, 191, 36, 0.6);
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+        }
+
+        /* پاپ‌آپ (Modal) اطلاعات خرید */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(160deg, #131722 0%, #0b0e14 100%);
+            border: 1px solid var(--gold-primary);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px 25px;
+            position: relative;
+            text-align: center;
+            transform: scale(0.85) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(251, 191, 36, 0.25);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--red-accent);
+            transform: rotate(90deg);
+        }
+
+        .selected-package-badge {
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 15px 0 20px;
+            display: inline-block;
+        }
+
+        /* نوتیفیکیشن کپی شدن */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            z-index: 2000;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* واکنش‌گرایی موبایل */
+        @media (max-width: 600px) {
+            .product-item {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .product-item::before {
+                width: 100%;
+                height: 3px;
+                top: 0;
+                right: 0;
+            }
+            .product-item:hover::before {
+                width: 100%;
+                height: 5px;
+            }
+            .product-price {
+                justify-content: center;
+            }
+            .btn-buy {
+                justify-content: center;
+                width: 100%;
+            }
+            .card-number {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- پس زمینه با افکت اسلوموشن -->
+    <div class="bg-wrapper">
+        <div class="bg-image"></div>
+    </div>
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <!-- هدر -->
+        <header class="fade-in-up">
+            <h1>فروشگاه عضو و فالور مذهبی 🔥</h1>
+        </header>
+
+        <!-- بخش راهنما و شماره کارت -->
+        <section class="payment-card fade-in-up" id="top-payment-info">
+            <p class="guide-text">
+                هر تعداد عضو که میخواید، پولش رو به شماره کارت زیر واریز کنید و رسید اش رو همراه لینک کانالتون به لینک روبینو زیر بفرستید:
+            </p>
+
+            <a href="https://rubika.ir/page/Mazhabiie" target="_blank" class="btn-rubino">
+                <i class="fas fa-external-link-alt"></i>
+                ورود به صفحه روبینو (ارسال رسید)
+            </a>
+
+            <!-- کارت بانکی با قابلیت کپی -->
+            <div class="card-box" onclick="copyText('6219861428523467', 'شماره کارت کپی شد!')">
+                <span class="card-label"><i class="far fa-credit-card"></i> شماره کارت (برای کپی لمس کنید):</span>
+                <div class="card-number">6219 8614 2852 3467</div>
+                <div class="card-owner">به نام: محمدمهدی موحدی فر</div>
+            </div>
+
+            <!-- آیدی خرید با قابلیت کپی -->
+            <div class="id-box">
+                <div style="font-size: 0.95rem; color: var(--text-muted);">آیدی پشتیبانی و خرید (برای کپی روی آیدی بزنید):</div>
+                <div class="id-badge" onclick="copyText('@Mazhabiie', 'آیدی @Mazhabiie کپی شد!')">
+                    <i class="far fa-copy"></i>
+                    <span>@Mazhabiie</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- لیست محصولات -->
+        <h2 class="section-title fade-in-up">تعرفه خدمات و محصولات</h2>
+
+        <div class="products-grid" id="products-list">
+            <!-- محصولات به صورت خودکار و تمیز از طریق اسکریپت رندر می‌شوند -->
+        </div>
+    </div>
+
+    <!-- پنجره بازشو (Modal) برای نمایش اطلاعات خرید هنگام کلیک روی دکمه خرید -->
+    <div class="modal-overlay" id="buyModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <h3 style="color: var(--gold-primary); font-size: 1.3rem;">تکمیل فرآیند خرید</h3>
+            
+            <div class="selected-package-badge" id="modalProductName">
+                <!-- نام محصول انتخابی اینجا قرار می‌گیرد -->
+            </div>
+
+            <p class="guide-text" style="font-size: 0.95rem; margin-bottom: 15px;">
+                هر تعداد عضو که میخواید، پولش رو به شماره کارت زیر واریز کنید و رسید اش رو همراه لینک کانالتون به لینک روبینو زیر بفرستید:
+            </p>
+
+            <a href="https://rubika.ir/page/Mazhabiie" target="_blank" class="btn-rubino" style="padding: 11px 24px; font-size: 0.95rem; margin-bottom: 15px;">
+                <i class="fas fa-paper-plane"></i>
+                ورود به روبینو و ارسال رسید
+            </a>
+
+            <div class="card-box" style="margin: 10px auto;" onclick="copyText('6219861428523467', 'شماره کارت کپی شد!')">
+                <span class="card-label">شماره کارت (لمس برای کپی):</span>
+                <div class="card-number" style="font-size: 1.25rem;">6219 8614 2852 3467</div>
+                <div class="card-owner" style="font-size: 0.9rem;">محمدمهدی موحدی فر</div>
+            </div>
+
+            <div class="id-box" style="margin-top: 12px; padding-top: 12px;">
+                <div style="font-size: 0.88rem; color: var(--text-muted);">آیدی خرید (لمس برای کپی):</div>
+                <div class="id-badge" style="font-size: 1.05rem; padding: 8px 20px;" onclick="copyText('@Mazhabiie', 'آیدی @Mazhabiie کپی شد!')">
+                    <i class="far fa-copy"></i>
+                    <span>@Mazhabiie</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- پیام تایید کپی -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">کپی شد!</span>
+    </div>
+
+    <script>
+        // لیست محصولات دقیقاً مطابق درخواست شما
+        const products = [
+            { title: "1000 عضو روبیکا (1k) فیک بدون ریزش", price: "100 هزار تومان" },
+            { title: "3000 عضو روبیکا (3k) فیک بدون ریزش", price: "150 هزار تومان" },
+            { title: "6000 عضو روبیکا (6k) فیک بدون ریزش", price: "280 هزار تومان" },
+            { title: "10000 عضو روبیکا (10k) فیک بدون ریزش", price: "400 هزار تومان" },
+            { title: "60000 عضو روبیکا (60k) فیک بدون ریزش", price: "1 میلیون تومان" },
+            { title: "1000 عضو روبیکا (1k) واقعی بدون ریزش", price: "300 هزار تومان" },
+            { title: "1000 فالور روبیکا (1k) فیک بدون ریزش", price: "100 هزار تومان" },
+            { title: "10000 فالور روبیکا (10k) فیک بدون ریزش", price: "500 هزار تومان" },
+            { title: "100000 عضو روبیکا (100k) فیک بدون ریزش", price: "1 میلیون تومان" },
+            { title: "1000 عضو ایتا و تلگرام (1k) فیک بدون ریزش", price: "220 هزار تومان" },
+            { title: "1000 عضو ایتا و تلگرام (1k) واقعی بدون ریزش", price: "500 هزار تومان" },
+            { title: "1000 فالور اینستا (1k) واقعی بدون ریزش", price: "150 هزار تومان" }
+        ];
+
+        // ساخت کارت‌های محصول در صفحه
+        const productsContainer = document.getElementById('products-list');
+        products.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'product-item fade-in-up';
+            card.style.transitionDelay = `${index * 0.07}s`; // تاخیر آبشاری نرم
+            card.innerHTML = `
+                <div class="product-info">
+                    <div class="product-name">${item.title}</div>
+                    <div class="product-price"><i class="fas fa-tag"></i> ${item.price}</div>
+                </div>
+                <button class="btn-buy" onclick="openBuyModal('${item.title} - ${item.price}')">
+                    <i class="fas fa-shopping-bag"></i>
+                    خرید
+                </button>
+            `;
+            productsContainer.appendChild(card);
+        });
+
+        // تابع کپی کردن متن در کلیپ‌بورد
+        function copyText(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message);
+            }).catch(() => {
+                // روش جایگزین برای مرورگرهای قدیمی
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast(message);
+            });
+        }
+
+        // نمایش پیام تایید کپی
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2800);
+        }
+
+        // باز کردن پنجره اطلاعات خرید هنگام کلیک روی دکمه خرید
+        function openBuyModal(productFullText) {
+            document.getElementById('modalProductName').innerText = productFullText;
+            document.getElementById('buyModal').classList.add('active');
+        }
+
+        // بستن پنجره خرید
+        function closeModal() {
+            document.getElementById('buyModal').classList.remove('active');
+        }
+
+        function closeModalOnOutside(e) {
+            if (e.target.id === 'buyModal') {
+                closeModal();
+            }
+        }
+
+        // انیمیشن اسکرول (ظاهر شدن نرم بخش‌ها هنگام پایین آمدن)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
