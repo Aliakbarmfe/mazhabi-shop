@@ -526,6 +526,12 @@
         <div class="products-grid" id="products-list">
             <!-- محصولات به صورت خودکار و تمیز از طریق اسکریپت رندر می‌شوند -->
         </div>
+
+        <h2 class="section-title fade-in-up">تعرفه فالور های روبینو👇</h2>
+
+        <div class="products-grid" id="rubino-followers-list">
+            <!-- فالورهای روبینو به صورت خودکار رندر می‌شوند -->
+        </div>
     </div>
 
     <!-- پنجره بازشو (Modal) برای نمایش اطلاعات خرید هنگام کلیک روی دکمه خرید -->
@@ -573,18 +579,18 @@
     <script>
         // لیست محصولات دقیقاً مطابق درخواست شما
         const products = [
-            { title: "1000 عضو روبیکا (1k) فیک بدون ریزش", price: "100 هزار تومان" },
-            { title: "3000 عضو روبیکا (3k) فیک بدون ریزش", price: "150 هزار تومان" },
-            { title: "6000 عضو روبیکا (6k) فیک بدون ریزش", price: "280 هزار تومان" },
-            { title: "10000 عضو روبیکا (10k) فیک بدون ریزش", price: "400 هزار تومان" },
-            { title: "60000 عضو روبیکا (60k) فیک بدون ریزش", price: "1 میلیون تومان" },
-            { title: "1000 عضو روبیکا (1k) واقعی بدون ریزش", price: "300 هزار تومان" },
-            { title: "1000 فالور روبیکا (1k) فیک بدون ریزش", price: "100 هزار تومان" },
-            { title: "10000 فالور روبیکا (10k) فیک بدون ریزش", price: "500 هزار تومان" },
-            { title: "100000 عضو روبیکا (100k) فیک بدون ریزش", price: "1 میلیون تومان" },
-            { title: "1000 عضو ایتا و تلگرام (1k) فیک بدون ریزش", price: "220 هزار تومان" },
-            { title: "1000 عضو ایتا و تلگرام (1k) واقعی بدون ریزش", price: "500 هزار تومان" },
-            { title: "1000 فالور اینستا (1k) واقعی بدون ریزش", price: "150 هزار تومان" }
+            { title: "1000 عضو روبیکا(1k) بدون ریزش", price: "320 هزار تومان" },
+            { title: "3000 عضو روبیکا (3k) بدون ریزش", price: "950هزار تومان" },
+            { title: "6000 عضو روبیکا (6k)بدون ریزش", price: "یک میلیون نهصد هزار تومان" },
+            { title: "10000 عضو روبیکا (10k) بدون ریزش", price: "سه میلیون صد هزار تومان" },
+            { title: "60000 عضو روبیکا(60k) بدون ریزش", price: "نوزده  میلیون تومان" }
+        ];
+
+        const rubinoFollowers = [
+            { title: "1000 فالور روبیکا (1k) بدون ریزش", price: "200هزار تومان" },
+            { title: "3000 فالور روبیکا (3k) بدون ریزش", price: "500هزار تومان" },
+            { title: "10000 فالور روبیکا (10k) بدون ریزش", price: "700 هزار تومان" },
+            { title: "300000 فالور روبیکا (300K) بدون ریزش", price: "7 میلیون تومان" }
         ];
 
         // ساخت کارت‌های محصول در صفحه
@@ -604,6 +610,25 @@
                 </button>
             `;
             productsContainer.appendChild(card);
+        });
+
+        // ساخت کارت‌های فالور روبینو در صفحه
+        const rubinoFollowersContainer = document.getElementById('rubino-followers-list');
+        rubinoFollowers.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'product-item fade-in-up';
+            card.style.transitionDelay = `${index * 0.07}s`; // تاخیر آبشاری نرم
+            card.innerHTML = `
+                <div class="product-info">
+                    <div class="product-name">${item.title}</div>
+                    <div class="product-price"><i class="fas fa-tag"></i> ${item.price}</div>
+                </div>
+                <button class="btn-buy" onclick="openBuyModal('${item.title} - ${item.price}')">
+                    <i class="fas fa-shopping-bag"></i>
+                    خرید
+                </button>
+            `;
+            rubinoFollowersContainer.appendChild(card);
         });
 
         // تابع کپی کردن متن در کلیپ‌بورد
@@ -662,3 +687,4 @@
     </script>
 </body>
 </html>
+ 
